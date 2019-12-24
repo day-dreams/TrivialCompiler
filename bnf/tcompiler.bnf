@@ -6,6 +6,6 @@ id : 'a'-'z' {'a'-'z'} ;
 
 /* Syntax Part */
 
-<< import "foo/ast" >>
+<< import "github.com/day-dreams/TrivialCompiler/ast" >>
 
 Hello:  "hello" id << ast.NewWorld($1) >> ;

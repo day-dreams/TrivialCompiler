@@ -5,7 +5,7 @@ package lexer
 import (
 	"fmt"
 
-	"Users/kakaxi/workplace/003_github/day-dreams/TrivialCompiler/token"
+	"github.com/day-dreams/TrivialCompiler/token"
 )
 
 type ActionTable [NumStates]ActionRow

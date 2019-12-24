@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"strings"
 
-	parseError "Users/kakaxi/workplace/003_github/day-dreams/TrivialCompiler/errors"
-	"Users/kakaxi/workplace/003_github/day-dreams/TrivialCompiler/token"
+	parseError "github.com/day-dreams/TrivialCompiler/errors"
+	"github.com/day-dreams/TrivialCompiler/token"
 )
 
 const (
