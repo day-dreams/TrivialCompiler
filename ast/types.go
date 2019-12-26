@@ -1,6 +1,9 @@
 package ast
 
-import "github.com/day-dreams/TrivialCompiler/token"
+import (
+	"fmt"
+	"github.com/day-dreams/TrivialCompiler/token"
+)
 
 type Attrib interface{}
 
@@ -46,7 +49,7 @@ func (i InfixExpression) statNode() {
 }
 
 func (i InfixExpression) TokenLit() string {
-	return string(i.Token.Lit)
+	return fmt.Sprintf("(%s %s %s)", i.Left.TokenLit(), i.Operator, i.Right.TokenLit())
 }
 
 func (i InfixExpression) exprNode() {

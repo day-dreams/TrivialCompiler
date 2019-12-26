@@ -1,7 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	interpreter2 "github.com/day-dreams/TrivialCompiler/interpreter"
+	"github.com/day-dreams/TrivialCompiler/io"
+	"os"
+)
 
 func main() {
-	fmt.Printf("...\n")
+	interpreter := interpreter2.Interpreter{}
+	reader := bufio.NewReader(os.Stdin)
+	for {
+		io.Write("$ ")
+		x, err := reader.ReadString('\n')
+		if err != nil {
+			panic(err)
+		}
+		interpreter.Interpret(x)
+	}
 }
