@@ -40,17 +40,32 @@ func (p Param) TokenLit() string {
 type GoStructField struct {
 	Ident  string
 	GoType string
-	GoTag  string
+	GoTag  GoTag
 }
 
 func (g GoStructField) TokenLit() string {
 	return fmt.Sprintf("%s\t%s", g.Ident, g.GoType)
 }
 
+type GoTag struct {
+	Tag string `json:"tag"`
+}
+
+func (g GoTag) TokenLit() string {
+	return g.Tag
+}
+func NewGoTag(gotag Attrib) (*GoTag, error) {
+	return &GoTag{Tag: string(gotag.(*token.Token).Lit)}, nil
+}
+
+func NewEmptyGoTag() (*GoTag, error) {
+	return &GoTag{}, nil
+}
+
 func NewGoStructField(ident, gotype, gotag Attrib) (*GoStructField, error) {
 	i := string(ident.(*token.Token).Lit)
 	gt := string(gotype.(*token.Token).Lit)
-	tag := string(gotag.(*token.Token).Lit)
+	tag := *gotag.(*GoTag)
 	io.Debug("new gostructfield...")
 	return &GoStructField{
 		Ident:  i,

@@ -63,6 +63,7 @@ func TestParserCodeGenGoStruct(t *testing.T) {
 		"Int64 int64 `gorm:\"int64\"` " +
 		"Float64 float64 `gorm:\"float64\"` " +
 		"Bool bool `gorm:\"bool\"` " +
+		"NoTag string" +
 		"}"
 	output := &ast.Program{
 		Stats: nil,
@@ -71,11 +72,12 @@ func TestParserCodeGenGoStruct(t *testing.T) {
 			Param: ast.Param{
 				StructName: "User",
 				Fields: []ast.GoStructField{
-					{Ident: "Id", GoType: "int", GoTag: "`gorm:\"id\" json:\"-\"`"},
-					{Ident: "Name", GoType: "string", GoTag: "`gorm:\"username\"`"},
-					{Ident: "Int64", GoType: "int64", GoTag: "`gorm:\"int64\"`"},
-					{Ident: "Float64", GoType: "float64", GoTag: "`gorm:\"float64\"`"},
-					{Ident: "Bool", GoType: "bool", GoTag: "`gorm:\"bool\"`"},
+					{Ident: "Id", GoType: "int", GoTag: ast.GoTag{Tag: "`gorm:\"id\" json:\"-\"`"}},
+					{Ident: "Name", GoType: "string", GoTag: ast.GoTag{"`gorm:\"username\"`"}},
+					{Ident: "Int64", GoType: "int64", GoTag: ast.GoTag{"`gorm:\"int64\"`"}},
+					{Ident: "Float64", GoType: "float64", GoTag: ast.GoTag{"`gorm:\"float64\"`"}},
+					{Ident: "Bool", GoType: "bool", GoTag: ast.GoTag{"`gorm:\"bool\"`"}},
+					{Ident: "NoTag", GoType: "string"},
 				},
 			},
 		},

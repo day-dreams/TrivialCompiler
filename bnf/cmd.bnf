@@ -66,7 +66,7 @@ GoStructFields
   ;
 
 GoStructField
-  : ident GoType gotag << ast.NewGoStructField($0,$1,$2) >>
+  : ident GoType GoTag << ast.NewGoStructField($0,$1,$2) >>
   ;
 
 GoType
@@ -75,6 +75,11 @@ GoType
   | goint64
   | gobool
   | gofloat64
+  ;
+
+GoTag
+  : gotag << ast.NewGoTag($0) >>
+  | empty << ast.NewEmptyGoTag() >>
   ;
 
  Statements
