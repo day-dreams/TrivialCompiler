@@ -2,7 +2,7 @@
 
 package parser
 
-const numNTSymbols = 15
+const numNTSymbols = 14
 
 type (
 	gotoTable [numStates]gotoRow
@@ -19,7 +19,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		2,  // Statements
 		-1, // Statement
 		-1, // Expression
@@ -36,7 +35,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -53,7 +51,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		6,  // Statement
 		7,  // Expression
@@ -70,7 +67,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -87,7 +83,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -104,7 +99,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -121,7 +115,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -138,11 +131,10 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
-		16, // Operation
+		15, // Operation
 		-1, // Term
 		-1, // Factor
 	},
@@ -155,7 +147,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -172,7 +163,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -189,7 +179,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		20, // Expression
@@ -206,7 +195,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -223,7 +211,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -240,7 +227,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -257,7 +243,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -274,13 +259,12 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
 		-1, // Operation
-		-1, // Term
-		-1, // Factor
+		26, // Term
+		9,  // Factor
 	},
 	gotoRow{ // S16
 		-1, // S'
@@ -291,13 +275,12 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
 		-1, // Operation
-		26, // Term
-		9,  // Factor
+		-1, // Term
+		-1, // Factor
 	},
 	gotoRow{ // S17
 		-1, // S'
@@ -308,7 +291,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -325,7 +307,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -342,7 +323,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -359,7 +339,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -376,7 +355,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -393,7 +371,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -410,7 +387,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		33, // Expression
@@ -427,7 +403,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -444,7 +419,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -461,7 +435,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -478,7 +451,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -495,7 +467,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -512,7 +483,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -529,7 +499,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -546,7 +515,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -563,7 +531,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -580,7 +547,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -597,7 +563,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -614,7 +579,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -631,7 +595,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -648,7 +611,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -665,7 +627,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -682,7 +643,6 @@ var gotoTab = gotoTable{
 		40, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -699,7 +659,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		43, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -716,7 +675,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		44, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -733,7 +691,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -750,7 +707,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -767,7 +723,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -784,7 +739,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -801,7 +755,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -818,7 +771,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -835,7 +787,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -852,7 +803,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression
@@ -869,109 +819,6 @@ var gotoTab = gotoTable{
 		-1, // GoStructFields
 		-1, // GoStructField
 		-1, // GoType
-		51, // TagDetail
-		-1, // Statements
-		-1, // Statement
-		-1, // Expression
-		-1, // Operation
-		-1, // Term
-		-1, // Factor
-	},
-	gotoRow{ // S51
-		-1, // S'
-		-1, // Program
-		-1, // Command
-		-1, // Cmd
-		-1, // Param
-		-1, // GoStructFields
-		-1, // GoStructField
-		-1, // GoType
-		-1, // TagDetail
-		-1, // Statements
-		-1, // Statement
-		-1, // Expression
-		-1, // Operation
-		-1, // Term
-		-1, // Factor
-	},
-	gotoRow{ // S52
-		-1, // S'
-		-1, // Program
-		-1, // Command
-		-1, // Cmd
-		-1, // Param
-		-1, // GoStructFields
-		-1, // GoStructField
-		-1, // GoType
-		-1, // TagDetail
-		-1, // Statements
-		-1, // Statement
-		-1, // Expression
-		-1, // Operation
-		-1, // Term
-		-1, // Factor
-	},
-	gotoRow{ // S53
-		-1, // S'
-		-1, // Program
-		-1, // Command
-		-1, // Cmd
-		-1, // Param
-		-1, // GoStructFields
-		-1, // GoStructField
-		-1, // GoType
-		-1, // TagDetail
-		-1, // Statements
-		-1, // Statement
-		-1, // Expression
-		-1, // Operation
-		-1, // Term
-		-1, // Factor
-	},
-	gotoRow{ // S54
-		-1, // S'
-		-1, // Program
-		-1, // Command
-		-1, // Cmd
-		-1, // Param
-		-1, // GoStructFields
-		-1, // GoStructField
-		-1, // GoType
-		-1, // TagDetail
-		-1, // Statements
-		-1, // Statement
-		-1, // Expression
-		-1, // Operation
-		-1, // Term
-		-1, // Factor
-	},
-	gotoRow{ // S55
-		-1, // S'
-		-1, // Program
-		-1, // Command
-		-1, // Cmd
-		-1, // Param
-		-1, // GoStructFields
-		-1, // GoStructField
-		-1, // GoType
-		-1, // TagDetail
-		-1, // Statements
-		-1, // Statement
-		-1, // Expression
-		-1, // Operation
-		-1, // Term
-		-1, // Factor
-	},
-	gotoRow{ // S56
-		-1, // S'
-		-1, // Program
-		-1, // Command
-		-1, // Cmd
-		-1, // Param
-		-1, // GoStructFields
-		-1, // GoStructField
-		-1, // GoType
-		-1, // TagDetail
 		-1, // Statements
 		-1, // Statement
 		-1, // Expression

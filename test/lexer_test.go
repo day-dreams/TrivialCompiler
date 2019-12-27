@@ -11,10 +11,21 @@ func TestLexer(t *testing.T) {
 		expectedType    token.Type
 		expectedLiteral string
 	}
-	const input = `
+	var input = `
 		(1+2)  *	3/
 4-5;
+	"
+
+CodeGenGoStruct
+type
+struct
+int
+int64
+bool
+float64
 `
+	input += "`gorm:\"tag name\"`"
+
 	tokMap := token.TokMap
 	cases := []Case{
 		{expectedType: tokMap.Type("lparen"), expectedLiteral: "("},
@@ -29,6 +40,17 @@ func TestLexer(t *testing.T) {
 		{expectedType: tokMap.Type("minus"), expectedLiteral: "-"},
 		{expectedType: tokMap.Type("int"), expectedLiteral: "5"},
 		{expectedType: tokMap.Type("semicolon"), expectedLiteral: ";"},
+		{expectedType: tokMap.Type("dquote"), expectedLiteral: `"`},
+
+		// go code gen
+		{expectedType: tokMap.Type("cmdcodegengostruct"), expectedLiteral: "CodeGenGoStruct"},
+		{expectedType: tokMap.Type("gotypeof"), expectedLiteral: "type"},
+		{expectedType: tokMap.Type("gostructdef"), expectedLiteral: "struct"},
+		{expectedType: tokMap.Type("goint"), expectedLiteral: "int"},
+		{expectedType: tokMap.Type("goint64"), expectedLiteral: "int64"},
+		{expectedType: tokMap.Type("gobool"), expectedLiteral: "bool"},
+		{expectedType: tokMap.Type("gofloat64"), expectedLiteral: "float64"},
+		{expectedType: tokMap.Type("gotag"), expectedLiteral: "`gorm:\"tag name\"`"},
 	}
 
 	l := lexer.NewLexer([]byte(input))
