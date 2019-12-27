@@ -60,8 +60,8 @@ float64
 			t.Fatalf("case %d failed. have {%v,%v}, expected {%v,%v}",
 				index, tok.Type, string(tok.Lit), tcase.expectedType, tcase.expectedLiteral)
 		} else {
-			t.Logf("case %d passed. have {%v,%v}, expected {%v,%v}",
-				index, tok.Type, string(tok.Lit), tcase.expectedType, tcase.expectedLiteral)
+			//t.Logf("case %d passed. have {%v,%v}, expected {%v,%v}",
+			//	index, tok.Type, string(tok.Lit), tcase.expectedType, tcase.expectedLiteral)
 		}
 	}
 

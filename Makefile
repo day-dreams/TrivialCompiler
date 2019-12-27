@@ -9,7 +9,7 @@ GOPATH=$(shell go env GOPATH)
 BINARY_NAME=tcompiler
 
 # make设置
-.PHONY: launch build gocc
+.PHONY: launch build gocc test
 .DEFAULT_GOAL := launch
 
 gocc:
@@ -19,4 +19,6 @@ launch:
 	$(GOBUILD) -o build/$(BINARY_NAME) cmd/main.go && ./build/${BINARY_NAME}
 build:
 	GOOS=linux GOARCH=amd64 $(GOBUILD) -o build/$(BINARY_NAME) cmd/main.go
+test:
+	go test -v test/*.go
 

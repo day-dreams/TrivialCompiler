@@ -18,6 +18,7 @@
 
 * usage
 ```bash
+make test
 make
 
 $ 1+2/3;

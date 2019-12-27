@@ -10,7 +10,7 @@ import (
 	"testing"
 )
 
-func TestParser1(t *testing.T) {
+func TestParserStatement(t *testing.T) {
 
 	const input = `
 			(1+2)  *	3/
@@ -54,7 +54,7 @@ func TestParser1(t *testing.T) {
 	}
 }
 
-func TestParser2(t *testing.T) {
+func TestParserCodeGenGoStruct(t *testing.T) {
 
 	//const input = "CodeGenGoStruct type User struct {Id int `gorm:\"id\"`}"
 	const input = "CodeGenGoStruct type User struct {" +
