@@ -103,13 +103,13 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `GoStructField : ident GoType gotag	<< ast.NewGoStructField(X[0],X[1]) >>`,
+		String: `GoStructField : ident GoType gotag	<< ast.NewGoStructField(X[0],X[1],X[2]) >>`,
 		Id:         "GoStructField",
 		NTType:     6,
 		Index:      8,
 		NumSymbols: 3,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
-			return ast.NewGoStructField(X[0], X[1])
+			return ast.NewGoStructField(X[0], X[1], X[2])
 		},
 	},
 	ProdTabEntry{

@@ -16,10 +16,18 @@ func Error(msg string) error {
 // source code -> lexer -> parser -> type Program
 func NewProgram(stats Attrib) (*Program, error) {
 	s, ok := stats.([]Statement)
-	if !ok {
-		return nil, Error("wrong type of stats")
+	if ok {
+		return &Program{Stats: s}, nil
 	}
-	return &Program{Stats: s}, nil
+	c, ok := stats.(*Command)
+	if ok {
+		return &Program{
+			Stats:   nil,
+			Command: *c,
+		}, nil
+	}
+
+	return nil, Error("wrong type of stats")
 }
 
 func NewStatementList() ([]Statement, error) {
