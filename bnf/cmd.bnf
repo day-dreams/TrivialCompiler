@@ -62,6 +62,7 @@ Param
 
 GoStructFields
   : GoStructFields GoStructField << ast.AppendGoStructField($0, $1) >>
+  | empty << ast.NewGoStructFieldList() >>
   ;
 
 GoStructField
