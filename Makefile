@@ -13,7 +13,8 @@ BINARY_NAME=tcompiler
 .DEFAULT_GOAL := launch
 
 gocc:
-	gocc -p github.com/day-dreams/TrivialCompiler bnf/tcompiler.bnf
+# 	gocc -p github.com/day-dreams/TrivialCompiler bnf/tcompiler.bnf
+	gocc -p github.com/day-dreams/TrivialCompiler bnf/cmd.bnf
 launch:
 	$(GOBUILD) -o build/$(BINARY_NAME) cmd/main.go && ./build/${BINARY_NAME}
 build:

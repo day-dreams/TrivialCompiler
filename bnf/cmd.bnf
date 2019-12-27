@@ -1,0 +1,116 @@
+/* Lexical Parser */
+!whitespace : '\t' | '\n' | '\r' | ' ' ;
+
+_letter : 'A'-'Z' | 'a'-'z' | '_' ;
+_digit : '0'-'9' ;
+_alpha : _letter | _digit ;
+
+int : '0' | '1'-'9' {_digit} ;
+ident : _letter {_alpha} ;
+
+/* punctuation */
+plus : '+' ;
+minus : '-' ;
+mul : '*' ;
+div : '/' ;
+
+lparen : '(' ;
+rparen : ')' ;
+semicolon : ';' ;
+lbrace : '{' ;
+rbrace : '}' ;
+dquote: '"';
+
+/* cmd */
+cmdcodegengostruct: 'C' 'o' 'd' 'e' 'G' 'e' 'n' 'G' 'o' 'S' 't' 'r' 'u' 'c' 't';
+
+/* go keyword */
+gotypeof: 't' 'y' 'p' 'e';
+gostructdef: 's' 't' 'r' 'u' 'c' 't';
+gostring: 's' 't' 'r' 'i' 'n' 'g';
+goint: 'i' 'n' 't';
+goint64: 'i' 'n' 't' '6' '4';
+gobool: 'b' 'o' 'o' 'l';
+gofloat64: 'f' 'l' 'o' 'a' 't' '6' '4';
+gotag: '`';
+
+/* Syntactic Parser */
+
+
+<<
+import (
+	"github.com/day-dreams/TrivialCompiler/ast"
+)
+>>
+
+Program
+  : Statements  << ast.NewProgram($0) >>
+  | Command << ast.NewProgram($0) >>
+  ;
+
+Command
+  : Cmd Param << ast.NewCommand($0,$1) >>
+  ;
+
+Cmd
+  : cmdcodegengostruct << ast.NewCmd($0) >>
+  ;
+
+Param
+  : gotypeof ident gostructdef lbrace GoStructFields rbrace << ast.NewParam($1,$4) >>
+  ;
+
+GoStructFields
+  : GoStructFields GoStructField << ast.AppendGoStructField($0, $1) >>
+  ;
+
+GoStructField
+  : ident GoType gotag TagDetail gotag << ast.NewGoStructField($0,$3) >>
+  ;
+
+GoType
+  : gostring
+  | goint
+  | goint64
+  | gobool
+  | gofloat64
+  ;
+
+TagDetail
+  : TagDetail ident
+  | TagDetail dquote
+  | TagDetail semicolon
+  | TagDetail minus
+  ;
+
+
+ Statements
+  : Statements Statement << ast.AppendStatement($0, $1) >>
+  | empty << ast.NewStatementList() >>
+  ;
+
+
+ Statement
+  : Expression semicolon << ast.NewExpressionStatement($0) >>
+  ;
+
+Expression
+  : Expression Operation Term << ast.NewInfixExpression($0, $2, $1) >>
+  | Term
+  ;
+
+ Operation
+ 	: plus
+ 	| minus
+ 	;
+
+Term
+  : Term mul Factor << ast.NewInfixExpression($0, $2, $1) >>
+  | Term div Factor << ast.NewInfixExpression($0, $2, $1) >>
+  | Factor
+  ;
+
+Factor
+  : lparen Expression rparen    << $1, nil >>
+  | int 					    << ast.NewIntegerLiteral($0) >>
+  ;

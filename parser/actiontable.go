@@ -14,17 +14,30 @@ var actionTab = actionTable{
 	actionRow{ // S0
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       // INVALID
-			reduce(3), // $, reduce: Statements
-			nil,       // empty
-			nil,       // semicolon
-			nil,       // plus
-			nil,       // minus
-			nil,       // mul
-			nil,       // div
-			reduce(3), // lparen, reduce: Statements
-			nil,       // rparen
-			reduce(3), // int, reduce: Statements
+			nil,        // INVALID
+			reduce(18), // $, reduce: Statements
+			shift(5),   // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			nil,        // minus
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			reduce(18), // lparen, reduce: Statements
+			nil,        // rparen
+			reduce(18), // int, reduce: Statements
 		},
 	},
 	actionRow{ // S1
@@ -32,10 +45,23 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,          // INVALID
 			accept(true), // $
-			nil,          // empty
+			nil,          // cmdcodegengostruct
+			nil,          // gotypeof
+			nil,          // ident
+			nil,          // gostructdef
+			nil,          // lbrace
+			nil,          // rbrace
+			nil,          // gotag
+			nil,          // gostring
+			nil,          // goint
+			nil,          // goint64
+			nil,          // gobool
+			nil,          // gofloat64
+			nil,          // dquote
 			nil,          // semicolon
-			nil,          // plus
 			nil,          // minus
+			nil,          // empty
+			nil,          // plus
 			nil,          // mul
 			nil,          // div
 			nil,          // lparen
@@ -48,31 +74,57 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			reduce(1), // $, reduce: Program
-			nil,       // empty
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
 			nil,       // semicolon
-			nil,       // plus
 			nil,       // minus
+			nil,       // empty
+			nil,       // plus
 			nil,       // mul
 			nil,       // div
-			shift(7),  // lparen
+			shift(10), // lparen
 			nil,       // rparen
-			shift(8),  // int
+			shift(11), // int
 		},
 	},
 	actionRow{ // S3
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       // INVALID
-			reduce(2), // $, reduce: Statements
-			nil,       // empty
+			reduce(2), // $, reduce: Program
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
 			nil,       // semicolon
-			nil,       // plus
 			nil,       // minus
+			nil,       // empty
+			nil,       // plus
 			nil,       // mul
 			nil,       // div
-			reduce(2), // lparen, reduce: Statements
+			nil,       // lparen
 			nil,       // rparen
-			reduce(2), // int, reduce: Statements
+			nil,       // int
 		},
 	},
 	actionRow{ // S4
@@ -80,10 +132,23 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			nil,       // $
+			nil,       // cmdcodegengostruct
+			shift(13), // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
 			nil,       // empty
-			shift(9),  // semicolon
-			shift(11), // plus
-			shift(12), // minus
+			nil,       // plus
 			nil,       // mul
 			nil,       // div
 			nil,       // lparen
@@ -96,12 +161,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			nil,       // $
+			nil,       // cmdcodegengostruct
+			reduce(4), // gotypeof, reduce: Cmd
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
 			nil,       // empty
-			reduce(6), // semicolon, reduce: Expression
-			reduce(6), // plus, reduce: Expression
-			reduce(6), // minus, reduce: Expression
-			shift(13), // mul
-			shift(14), // div
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
 			nil,       // lparen
 			nil,       // rparen
 			nil,       // int
@@ -111,16 +189,29 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        // INVALID
-			nil,        // $
+			reduce(17), // $, reduce: Statements
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			nil,        // minus
 			nil,        // empty
-			reduce(11), // semicolon, reduce: Term
-			reduce(11), // plus, reduce: Term
-			reduce(11), // minus, reduce: Term
-			reduce(11), // mul, reduce: Term
-			reduce(11), // div, reduce: Term
-			nil,        // lparen
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			reduce(17), // lparen, reduce: Statements
 			nil,        // rparen
-			nil,        // int
+			reduce(17), // int, reduce: Statements
 		},
 	},
 	actionRow{ // S7
@@ -128,15 +219,28 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			shift(14), // semicolon
+			shift(15), // minus
 			nil,       // empty
-			nil,       // semicolon
-			nil,       // plus
-			nil,       // minus
+			shift(17), // plus
 			nil,       // mul
 			nil,       // div
-			shift(18), // lparen
+			nil,       // lparen
 			nil,       // rparen
-			shift(19), // int
+			nil,       // int
 		},
 	},
 	actionRow{ // S8
@@ -144,12 +248,25 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			reduce(21), // semicolon, reduce: Expression
+			reduce(21), // minus, reduce: Expression
 			nil,        // empty
-			reduce(13), // semicolon, reduce: Factor
-			reduce(13), // plus, reduce: Factor
-			reduce(13), // minus, reduce: Factor
-			reduce(13), // mul, reduce: Factor
-			reduce(13), // div, reduce: Factor
+			reduce(21), // plus, reduce: Expression
+			shift(18),  // mul
+			shift(19),  // div
 			nil,        // lparen
 			nil,        // rparen
 			nil,        // int
@@ -158,113 +275,204 @@ var actionTab = actionTable{
 	actionRow{ // S9
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       // INVALID
-			reduce(4), // $, reduce: Statement
-			nil,       // empty
-			nil,       // semicolon
-			nil,       // plus
-			nil,       // minus
-			nil,       // mul
-			nil,       // div
-			reduce(4), // lparen, reduce: Statement
-			nil,       // rparen
-			reduce(4), // int, reduce: Statement
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			reduce(26), // semicolon, reduce: Term
+			reduce(26), // minus, reduce: Term
+			nil,        // empty
+			reduce(26), // plus, reduce: Term
+			reduce(26), // mul, reduce: Term
+			reduce(26), // div, reduce: Term
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
 		},
 	},
 	actionRow{ // S10
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,      // INVALID
-			nil,      // $
-			nil,      // empty
-			nil,      // semicolon
-			nil,      // plus
-			nil,      // minus
-			nil,      // mul
-			nil,      // div
-			shift(7), // lparen
-			nil,      // rparen
-			shift(8), // int
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			shift(23), // lparen
+			nil,       // rparen
+			shift(24), // int
 		},
 	},
 	actionRow{ // S11
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			nil,       // empty
-			nil,       // semicolon
-			nil,       // plus
-			nil,       // minus
-			nil,       // mul
-			nil,       // div
-			reduce(7), // lparen, reduce: Operation
-			nil,       // rparen
-			reduce(7), // int, reduce: Operation
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			reduce(28), // semicolon, reduce: Factor
+			reduce(28), // minus, reduce: Factor
+			nil,        // empty
+			reduce(28), // plus, reduce: Factor
+			reduce(28), // mul, reduce: Factor
+			reduce(28), // div, reduce: Factor
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
 		},
 	},
 	actionRow{ // S12
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       // INVALID
-			nil,       // $
-			nil,       // empty
+			reduce(3), // $, reduce: Command
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
 			nil,       // semicolon
-			nil,       // plus
 			nil,       // minus
+			nil,       // empty
+			nil,       // plus
 			nil,       // mul
 			nil,       // div
-			reduce(8), // lparen, reduce: Operation
+			nil,       // lparen
 			nil,       // rparen
-			reduce(8), // int, reduce: Operation
+			nil,       // int
 		},
 	},
 	actionRow{ // S13
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,      // INVALID
-			nil,      // $
-			nil,      // empty
-			nil,      // semicolon
-			nil,      // plus
-			nil,      // minus
-			nil,      // mul
-			nil,      // div
-			shift(7), // lparen
-			nil,      // rparen
-			shift(8), // int
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			shift(25), // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
 		},
 	},
 	actionRow{ // S14
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,      // INVALID
-			nil,      // $
-			nil,      // empty
-			nil,      // semicolon
-			nil,      // plus
-			nil,      // minus
-			nil,      // mul
-			nil,      // div
-			shift(7), // lparen
-			nil,      // rparen
-			shift(8), // int
+			nil,        // INVALID
+			reduce(19), // $, reduce: Statement
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			nil,        // minus
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			reduce(19), // lparen, reduce: Statement
+			nil,        // rparen
+			reduce(19), // int, reduce: Statement
 		},
 	},
 	actionRow{ // S15
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			nil,       // empty
-			nil,       // semicolon
-			shift(11), // plus
-			shift(12), // minus
-			nil,       // mul
-			nil,       // div
-			nil,       // lparen
-			shift(24), // rparen
-			nil,       // int
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			nil,        // minus
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			reduce(23), // lparen, reduce: Operation
+			nil,        // rparen
+			reduce(23), // int, reduce: Operation
 		},
 	},
 	actionRow{ // S16
@@ -272,15 +480,28 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			nil,       // $
-			nil,       // empty
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
 			nil,       // semicolon
-			reduce(6), // plus, reduce: Expression
-			reduce(6), // minus, reduce: Expression
-			shift(25), // mul
-			shift(26), // div
-			nil,       // lparen
-			reduce(6), // rparen, reduce: Expression
-			nil,       // int
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			shift(10), // lparen
+			nil,       // rparen
+			shift(11), // int
 		},
 	},
 	actionRow{ // S17
@@ -288,15 +509,28 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			nil,        // empty
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
 			nil,        // semicolon
-			reduce(11), // plus, reduce: Term
-			reduce(11), // minus, reduce: Term
-			reduce(11), // mul, reduce: Term
-			reduce(11), // div, reduce: Term
-			nil,        // lparen
-			reduce(11), // rparen, reduce: Term
-			nil,        // int
+			nil,        // minus
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			reduce(22), // lparen, reduce: Operation
+			nil,        // rparen
+			reduce(22), // int, reduce: Operation
 		},
 	},
 	actionRow{ // S18
@@ -304,31 +538,57 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			nil,       // $
-			nil,       // empty
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
 			nil,       // semicolon
-			nil,       // plus
 			nil,       // minus
+			nil,       // empty
+			nil,       // plus
 			nil,       // mul
 			nil,       // div
-			shift(18), // lparen
+			shift(10), // lparen
 			nil,       // rparen
-			shift(19), // int
+			shift(11), // int
 		},
 	},
 	actionRow{ // S19
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,        // INVALID
-			nil,        // $
-			nil,        // empty
-			nil,        // semicolon
-			reduce(13), // plus, reduce: Factor
-			reduce(13), // minus, reduce: Factor
-			reduce(13), // mul, reduce: Factor
-			reduce(13), // div, reduce: Factor
-			nil,        // lparen
-			reduce(13), // rparen, reduce: Factor
-			nil,        // int
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			shift(10), // lparen
+			nil,       // rparen
+			shift(11), // int
 		},
 	},
 	actionRow{ // S20
@@ -336,31 +596,57 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			shift(15), // minus
 			nil,       // empty
-			reduce(5), // semicolon, reduce: Expression
-			reduce(5), // plus, reduce: Expression
-			reduce(5), // minus, reduce: Expression
-			shift(13), // mul
-			shift(14), // div
+			shift(17), // plus
+			nil,       // mul
+			nil,       // div
 			nil,       // lparen
-			nil,       // rparen
+			shift(30), // rparen
 			nil,       // int
 		},
 	},
 	actionRow{ // S21
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			nil,       // empty
-			reduce(9), // semicolon, reduce: Term
-			reduce(9), // plus, reduce: Term
-			reduce(9), // minus, reduce: Term
-			reduce(9), // mul, reduce: Term
-			reduce(9), // div, reduce: Term
-			nil,       // lparen
-			nil,       // rparen
-			nil,       // int
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			reduce(21), // minus, reduce: Expression
+			nil,        // empty
+			reduce(21), // plus, reduce: Expression
+			shift(31),  // mul
+			shift(32),  // div
+			nil,        // lparen
+			reduce(21), // rparen, reduce: Expression
+			nil,        // int
 		},
 	},
 	actionRow{ // S22
@@ -368,14 +654,27 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			reduce(26), // minus, reduce: Term
 			nil,        // empty
-			reduce(10), // semicolon, reduce: Term
-			reduce(10), // plus, reduce: Term
-			reduce(10), // minus, reduce: Term
-			reduce(10), // mul, reduce: Term
-			reduce(10), // div, reduce: Term
+			reduce(26), // plus, reduce: Term
+			reduce(26), // mul, reduce: Term
+			reduce(26), // div, reduce: Term
 			nil,        // lparen
-			nil,        // rparen
+			reduce(26), // rparen, reduce: Term
 			nil,        // int
 		},
 	},
@@ -384,15 +683,28 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			nil,       // $
-			nil,       // empty
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
 			nil,       // semicolon
-			nil,       // plus
 			nil,       // minus
+			nil,       // empty
+			nil,       // plus
 			nil,       // mul
 			nil,       // div
-			shift(18), // lparen
+			shift(23), // lparen
 			nil,       // rparen
-			shift(19), // int
+			shift(24), // int
 		},
 	},
 	actionRow{ // S24
@@ -400,14 +712,27 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			reduce(28), // minus, reduce: Factor
 			nil,        // empty
-			reduce(12), // semicolon, reduce: Factor
-			reduce(12), // plus, reduce: Factor
-			reduce(12), // minus, reduce: Factor
-			reduce(12), // mul, reduce: Factor
-			reduce(12), // div, reduce: Factor
+			reduce(28), // plus, reduce: Factor
+			reduce(28), // mul, reduce: Factor
+			reduce(28), // div, reduce: Factor
 			nil,        // lparen
-			nil,        // rparen
+			reduce(28), // rparen, reduce: Factor
 			nil,        // int
 		},
 	},
@@ -416,63 +741,115 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			nil,       // $
-			nil,       // empty
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			shift(34), // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
 			nil,       // semicolon
-			nil,       // plus
 			nil,       // minus
+			nil,       // empty
+			nil,       // plus
 			nil,       // mul
 			nil,       // div
-			shift(18), // lparen
+			nil,       // lparen
 			nil,       // rparen
-			shift(19), // int
+			nil,       // int
 		},
 	},
 	actionRow{ // S26
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			nil,       // empty
-			nil,       // semicolon
-			nil,       // plus
-			nil,       // minus
-			nil,       // mul
-			nil,       // div
-			shift(18), // lparen
-			nil,       // rparen
-			shift(19), // int
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			reduce(20), // semicolon, reduce: Expression
+			reduce(20), // minus, reduce: Expression
+			nil,        // empty
+			reduce(20), // plus, reduce: Expression
+			shift(18),  // mul
+			shift(19),  // div
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
 		},
 	},
 	actionRow{ // S27
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			nil,       // empty
-			nil,       // semicolon
-			shift(11), // plus
-			shift(12), // minus
-			nil,       // mul
-			nil,       // div
-			nil,       // lparen
-			shift(31), // rparen
-			nil,       // int
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			reduce(24), // semicolon, reduce: Term
+			reduce(24), // minus, reduce: Term
+			nil,        // empty
+			reduce(24), // plus, reduce: Term
+			reduce(24), // mul, reduce: Term
+			reduce(24), // div, reduce: Term
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
 		},
 	},
 	actionRow{ // S28
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       // INVALID
-			nil,       // $
-			nil,       // empty
-			nil,       // semicolon
-			reduce(5), // plus, reduce: Expression
-			reduce(5), // minus, reduce: Expression
-			shift(25), // mul
-			shift(26), // div
-			nil,       // lparen
-			reduce(5), // rparen, reduce: Expression
-			nil,       // int
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			reduce(25), // semicolon, reduce: Term
+			reduce(25), // minus, reduce: Term
+			nil,        // empty
+			reduce(25), // plus, reduce: Term
+			reduce(25), // mul, reduce: Term
+			reduce(25), // div, reduce: Term
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
 		},
 	},
 	actionRow{ // S29
@@ -480,15 +857,28 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			nil,       // $
-			nil,       // empty
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
 			nil,       // semicolon
-			reduce(9), // plus, reduce: Term
-			reduce(9), // minus, reduce: Term
-			reduce(9), // mul, reduce: Term
-			reduce(9), // div, reduce: Term
-			nil,       // lparen
-			reduce(9), // rparen, reduce: Term
-			nil,       // int
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			shift(23), // lparen
+			nil,       // rparen
+			shift(24), // int
 		},
 	},
 	actionRow{ // S30
@@ -496,30 +886,781 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			reduce(27), // semicolon, reduce: Factor
+			reduce(27), // minus, reduce: Factor
 			nil,        // empty
-			nil,        // semicolon
-			reduce(10), // plus, reduce: Term
-			reduce(10), // minus, reduce: Term
-			reduce(10), // mul, reduce: Term
-			reduce(10), // div, reduce: Term
+			reduce(27), // plus, reduce: Factor
+			reduce(27), // mul, reduce: Factor
+			reduce(27), // div, reduce: Factor
 			nil,        // lparen
-			reduce(10), // rparen, reduce: Term
+			nil,        // rparen
 			nil,        // int
 		},
 	},
 	actionRow{ // S31
 		canRecover: false,
 		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			shift(23), // lparen
+			nil,       // rparen
+			shift(24), // int
+		},
+	},
+	actionRow{ // S32
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			shift(23), // lparen
+			nil,       // rparen
+			shift(24), // int
+		},
+	},
+	actionRow{ // S33
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			shift(15), // minus
+			nil,       // empty
+			shift(17), // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			shift(38), // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S34
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			shift(39), // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S35
+		canRecover: false,
+		actions: [numSymbols]action{
 			nil,        // INVALID
 			nil,        // $
-			nil,        // empty
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
 			nil,        // semicolon
-			reduce(12), // plus, reduce: Factor
-			reduce(12), // minus, reduce: Factor
-			reduce(12), // mul, reduce: Factor
-			reduce(12), // div, reduce: Factor
+			reduce(20), // minus, reduce: Expression
+			nil,        // empty
+			reduce(20), // plus, reduce: Expression
+			shift(31),  // mul
+			shift(32),  // div
 			nil,        // lparen
-			reduce(12), // rparen, reduce: Factor
+			reduce(20), // rparen, reduce: Expression
+			nil,        // int
+		},
+	},
+	actionRow{ // S36
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			reduce(24), // minus, reduce: Term
+			nil,        // empty
+			reduce(24), // plus, reduce: Term
+			reduce(24), // mul, reduce: Term
+			reduce(24), // div, reduce: Term
+			nil,        // lparen
+			reduce(24), // rparen, reduce: Term
+			nil,        // int
+		},
+	},
+	actionRow{ // S37
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			reduce(25), // minus, reduce: Term
+			nil,        // empty
+			reduce(25), // plus, reduce: Term
+			reduce(25), // mul, reduce: Term
+			reduce(25), // div, reduce: Term
+			nil,        // lparen
+			reduce(25), // rparen, reduce: Term
+			nil,        // int
+		},
+	},
+	actionRow{ // S38
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // gotag
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			reduce(27), // minus, reduce: Factor
+			nil,        // empty
+			reduce(27), // plus, reduce: Factor
+			reduce(27), // mul, reduce: Factor
+			reduce(27), // div, reduce: Factor
+			nil,        // lparen
+			reduce(27), // rparen, reduce: Factor
+			nil,        // int
+		},
+	},
+	actionRow{ // S39
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil, // INVALID
+			nil, // $
+			nil, // cmdcodegengostruct
+			nil, // gotypeof
+			nil, // ident
+			nil, // gostructdef
+			nil, // lbrace
+			nil, // rbrace
+			nil, // gotag
+			nil, // gostring
+			nil, // goint
+			nil, // goint64
+			nil, // gobool
+			nil, // gofloat64
+			nil, // dquote
+			nil, // semicolon
+			nil, // minus
+			nil, // empty
+			nil, // plus
+			nil, // mul
+			nil, // div
+			nil, // lparen
+			nil, // rparen
+			nil, // int
+		},
+	},
+	actionRow{ // S40
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			shift(41), // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			shift(42), // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S41
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			shift(45), // gostring
+			shift(46), // goint
+			shift(47), // goint64
+			shift(48), // gobool
+			shift(49), // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S42
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			reduce(5), // $, reduce: Param
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S43
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			reduce(6), // ident, reduce: GoStructFields
+			nil,       // gostructdef
+			nil,       // lbrace
+			reduce(6), // rbrace, reduce: GoStructFields
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S44
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			shift(50), // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S45
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			reduce(8), // gotag, reduce: GoType
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S46
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			nil,       // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			reduce(9), // gotag, reduce: GoType
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S47
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			reduce(10), // gotag, reduce: GoType
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			nil,        // minus
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
+		},
+	},
+	actionRow{ // S48
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			reduce(11), // gotag, reduce: GoType
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			nil,        // minus
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
+		},
+	},
+	actionRow{ // S49
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			nil,        // ident
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			reduce(12), // gotag, reduce: GoType
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			nil,        // dquote
+			nil,        // semicolon
+			nil,        // minus
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
+		},
+	},
+	actionRow{ // S50
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil, // INVALID
+			nil, // $
+			nil, // cmdcodegengostruct
+			nil, // gotypeof
+			nil, // ident
+			nil, // gostructdef
+			nil, // lbrace
+			nil, // rbrace
+			nil, // gotag
+			nil, // gostring
+			nil, // goint
+			nil, // goint64
+			nil, // gobool
+			nil, // gofloat64
+			nil, // dquote
+			nil, // semicolon
+			nil, // minus
+			nil, // empty
+			nil, // plus
+			nil, // mul
+			nil, // div
+			nil, // lparen
+			nil, // rparen
+			nil, // int
+		},
+	},
+	actionRow{ // S51
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			shift(52), // ident
+			nil,       // gostructdef
+			nil,       // lbrace
+			nil,       // rbrace
+			shift(53), // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			shift(54), // dquote
+			shift(55), // semicolon
+			shift(56), // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S52
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			reduce(13), // ident, reduce: TagDetail
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			reduce(13), // gotag, reduce: TagDetail
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			reduce(13), // dquote, reduce: TagDetail
+			reduce(13), // semicolon, reduce: TagDetail
+			reduce(13), // minus, reduce: TagDetail
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
+		},
+	},
+	actionRow{ // S53
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // cmdcodegengostruct
+			nil,       // gotypeof
+			reduce(7), // ident, reduce: GoStructField
+			nil,       // gostructdef
+			nil,       // lbrace
+			reduce(7), // rbrace, reduce: GoStructField
+			nil,       // gotag
+			nil,       // gostring
+			nil,       // goint
+			nil,       // goint64
+			nil,       // gobool
+			nil,       // gofloat64
+			nil,       // dquote
+			nil,       // semicolon
+			nil,       // minus
+			nil,       // empty
+			nil,       // plus
+			nil,       // mul
+			nil,       // div
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // int
+		},
+	},
+	actionRow{ // S54
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			reduce(14), // ident, reduce: TagDetail
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			reduce(14), // gotag, reduce: TagDetail
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			reduce(14), // dquote, reduce: TagDetail
+			reduce(14), // semicolon, reduce: TagDetail
+			reduce(14), // minus, reduce: TagDetail
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
+		},
+	},
+	actionRow{ // S55
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			reduce(15), // ident, reduce: TagDetail
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			reduce(15), // gotag, reduce: TagDetail
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			reduce(15), // dquote, reduce: TagDetail
+			reduce(15), // semicolon, reduce: TagDetail
+			reduce(15), // minus, reduce: TagDetail
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // int
+		},
+	},
+	actionRow{ // S56
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // cmdcodegengostruct
+			nil,        // gotypeof
+			reduce(16), // ident, reduce: TagDetail
+			nil,        // gostructdef
+			nil,        // lbrace
+			nil,        // rbrace
+			reduce(16), // gotag, reduce: TagDetail
+			nil,        // gostring
+			nil,        // goint
+			nil,        // goint64
+			nil,        // gobool
+			nil,        // gofloat64
+			reduce(16), // dquote, reduce: TagDetail
+			reduce(16), // semicolon, reduce: TagDetail
+			reduce(16), // minus, reduce: TagDetail
+			nil,        // empty
+			nil,        // plus
+			nil,        // mul
+			nil,        // div
+			nil,        // lparen
+			nil,        // rparen
 			nil,        // int
 		},
 	},
