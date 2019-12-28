@@ -10,7 +10,8 @@ func TestInterpreter(t *testing.T) {
 		"type User struct {" +
 		"	Id int64 `json:\"id\" gorm:\"id\"`" +
 		"	Name string `json:\"name\" gorm:\"name\"`" +
-		"	Phone string `json:\"phone\" gorm:\"phone\"`" +
+		"	PhoneNumber string `json:\"phone\" gorm:\"phone\"`" +
+		"	PhoneNumberAtHome string `json:\"phone_at_home\" gorm:\"phone\"`" +
 		"	Graduated bool `json:\"graduated\" gorm:\"graduated\"`" +
 		"	Weight float64 `json:\"weight\" gorm:\"weight\"`" +
 		"}"

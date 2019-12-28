@@ -1,0 +1,9 @@
+CodeGenGoStruct type user struct {
+
+    Id string `json:"id"`
+    PhoneNumber string `json:"phone"`
+
+}
+
+
+.
