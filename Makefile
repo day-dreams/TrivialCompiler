@@ -9,13 +9,20 @@ GOPATH=$(shell go env GOPATH)
 BINARY_NAME=tcompiler
 
 # make设置
-.PHONY: launch build gocc
-.DEFAULT_GOAL := launch
+.PHONY: launch build gocc test
+.DEFAULT_GOAL := build
 
 gocc:
-	gocc -p github.com/day-dreams/TrivialCompiler bnf/tcompiler.bnf
+# 	gocc -p github.com/day-dreams/TrivialCompiler bnf/tcompiler.bnf
+	gocc -p github.com/day-dreams/TrivialCompiler bnf/cmd.bnf
 launch:
 	$(GOBUILD) -o build/$(BINARY_NAME) cmd/main.go && ./build/${BINARY_NAME}
 build:
-	GOOS=linux GOARCH=amd64 $(GOBUILD) -o build/$(BINARY_NAME) cmd/main.go
+	$(GOBUILD) -o build/$(BINARY_NAME) cmd/main.go
+test:
+	go test -v test/*.go
+install: build
+	cp build/${BINARY_NAME} /usr/local/bin/${BINARY_NAME}
+uninstall:
+	rm /usr/local/bin/${BINARY_NAME}
 

@@ -8,7 +8,8 @@ import (
 type Attrib interface{}
 
 type Program struct {
-	Stats []Statement `json:"stats"`
+	Stats   []Statement `json:"stats"`
+	Command Command     `json:"command"`
 }
 
 type Node interface {
