@@ -19,7 +19,7 @@
 * usage
 ```bash
 make test
-make
+make launch
 
 $ 1+2/3;
 (1 + (2 / 3)) = 1.66666667
@@ -31,4 +31,13 @@ $ 17750*15;
 $ 17750*17;
 (17750 * 17) = 301750.00000000
 $
+```
+
+* another usage
+
+```bash
+make test
+make build
+make install
+tcompiler -src=./test/gostruct.txt # 生成user.go和user.proto文件
 ```

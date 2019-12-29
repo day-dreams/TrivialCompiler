@@ -53,7 +53,9 @@ var (
 
 func doCommand(cmd *ast.Command) {
 	handle := cmd2func[cmd.Cmd.TokenLit()]
-	handle(cmd)
+	if handle != nil {
+		handle(cmd)
+	}
 }
 
 // 根据struct定义，生成crud函数的param和pb文件
@@ -72,9 +74,9 @@ func doCodeGenGoStruct(cmd *ast.Command) {
 func doCodeGenGoStructCrudProtoBuffer(cmd *ast.Command) []byte {
 	name := cmd.Param.StructName
 	fields := bytes.NewBuffer(nil)
-	for _, field := range cmd.Param.Fields {
-		fields.WriteString(fmt.Sprintf("\t%s %s [ json_name = \"%s\" ];\n",
-			helper.GoType2pbType(field.GoType), field.Ident, helper.Underlined(field.Ident)))
+	for i, field := range cmd.Param.Fields {
+		fields.WriteString(fmt.Sprintf("\t%s %s = %d [ json_name = \"%s\" ];\n",
+			helper.GoType2pbType(field.GoType), field.Ident, i+1, helper.Underlined(field.Ident)))
 	}
 
 	// header
@@ -92,7 +94,7 @@ service %sService {
 
 	rpc List%s (ReqList%s) returns(ResList%s);
 	rpc Create%s (ReqCreate%s) returns(ResCreate%s);
-	rpc Update%s (ReqUpdate%s) returns(ResUpate%s);
+	rpc Update%s (ReqUpdate%s) returns(ResUpdate%s);
 	rpc Delete%s (ReqDelete%s) returns(ResDelete%s);
 
 }
@@ -100,15 +102,10 @@ service %sService {
 
 	// object
 	object := bytes.NewBuffer(nil)
-	object.WriteString(fmt.Sprintf(`message %s {\n`, name))
-	for _, field := range cmd.Param.Fields {
-		object.WriteString(
-			fmt.Sprintf(`\t%s %s [ json_name = "%s" ];\n`,
-				helper.GoType2pbType(field.GoType),
-				field.Ident,
-				helper.Underlined(field.Ident)))
-	}
-	object.WriteString(`}\n`)
+	object.WriteString(fmt.Sprintf(`message %s {
+
+%s
+}`, name, string(fields.Bytes())))
 
 	// list
 	list := bytes.NewBuffer(nil)
@@ -119,7 +116,7 @@ message ReqList%s {
 }
 
 message ResList%s {
-	repeated %s data [ json_tag = "data" ];
+	repeated %s data = 1 [ json_tag = "data" ];
 }
 
 `, name, string(fields.Bytes()), name, name))
@@ -166,7 +163,7 @@ message ResDelete%s {
 
 `, name, string(fields.Bytes()), name))
 
-	return helper.Contact(header.Bytes(), service.Bytes(), list.Bytes(), create.Bytes(), update.Bytes(), del.Bytes())
+	return helper.Contact(header.Bytes(), service.Bytes(), object.Bytes(), list.Bytes(), create.Bytes(), update.Bytes(), del.Bytes())
 }
 
 func doCodeGenGoStructCrudParam(cmd *ast.Command) []byte {
@@ -178,16 +175,16 @@ func doCodeGenGoStructCrudParam(cmd *ast.Command) []byte {
 
 	crud := bytes.NewBuffer(nil)
 	crud.WriteString(fmt.Sprintf("package %s\n\n", strings.ToLower(name)))
-	crud.WriteString(fmt.Sprintf("type ParamCreate%s {\n", name))
+	crud.WriteString(fmt.Sprintf("type ParamCreate%s struct {\n", name))
 	crud.Write(fields.Bytes())
 	crud.WriteString(fmt.Sprintf("}\n"))
-	crud.WriteString(fmt.Sprintf("type ParamUpdate%s {\n", name))
+	crud.WriteString(fmt.Sprintf("type ParamUpdate%s struct {\n", name))
 	crud.Write(fields.Bytes())
 	crud.WriteString(fmt.Sprintf("}\n"))
-	crud.WriteString(fmt.Sprintf("type ParamList%s {\n", name))
+	crud.WriteString(fmt.Sprintf("type ParamList%s struct {\n", name))
 	crud.Write(fields.Bytes())
 	crud.WriteString(fmt.Sprintf("}\n"))
-	crud.WriteString(fmt.Sprintf("type ParamDelete%s {\n", name))
+	crud.WriteString(fmt.Sprintf("type ParamDelete%s struct {\n", name))
 	crud.Write(fields.Bytes())
 	crud.WriteString(fmt.Sprintf("}\n"))
 

@@ -1,4 +1,5 @@
-CodeGenGoStruct type user struct {
+CodeGenGoStruct
+type User struct {
 
     Id string `json:"id"`
     PhoneNumber string `json:"phone"`
@@ -6,4 +7,3 @@ CodeGenGoStruct type user struct {
 }
 
 
-.
